@@ -12,7 +12,7 @@ class Main {
 
         const connection = new WebsocketConnection();
 
-        const influxClient = new InfluxClient();
+        const influxClient = new InfluxClient(url);
         
         connection.initialize(url, influxClient);
     }

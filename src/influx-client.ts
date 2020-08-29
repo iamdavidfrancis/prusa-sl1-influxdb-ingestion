@@ -21,8 +21,8 @@ export interface InfluxEntrySchema {
 export default class InfluxClient {
     private measurement =  'printStats';
     private influx: Influx.InfluxDB;
-
-    constructor() {
+    
+    constructor(private printerHost: string) {
         if (!process.env.INFLUX_HOST) {
             throw "Missing InfluxDb Host";
         }
@@ -74,7 +74,7 @@ export default class InfluxClient {
         await this.influx.writePoints([
             {
                 measurement: this.measurement,
-                tags: { host: process.env.PRINTER_HOST || 'PrusaSl1' },
+                tags: { host: this.printerHost },
                 fields: item as any,
                 timestamp: new Date()
             }
