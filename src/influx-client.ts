@@ -1,4 +1,4 @@
-import Influx from 'influx';
+import * as Influx from 'influx';
 
 export interface InfluxEntrySchema {
     blower_fan: number,
