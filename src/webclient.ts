@@ -16,7 +16,7 @@ export default class WebsocketConnection {
     public async initialize(printerIP: string, influxClient: InfluxClient): Promise<void> {
         return new Promise((res, rej) => {
             this.client.on('connectFailed', (error) => {
-                console.error(JSON.stringify(error, null, '\t'));
+                console.error(`Connection failed: ${JSON.stringify(error, null, '\t')}`);
                 rej(error); 
             });
 
@@ -34,14 +34,12 @@ export default class WebsocketConnection {
 
                 connection.on('message', async (message) => {
                     if (message.type === 'utf8') {
-
                         const data = JSON.parse(message.utf8Data || '') as MessageData;
 
                         if (data.type === "items") {
                            if (!data.content || data.content.exposure) {
                                return;
                            } else {
-                               console.log(`Received item: ${JSON.stringify(data.content, null, '\t')}`);
                                await influxClient.addDbEntry(data.content);
                            }
                         }
@@ -49,6 +47,7 @@ export default class WebsocketConnection {
                 });
             });
 
+            console.log("Connecting...");
             this.client.connect(`ws://${printerIP}/ws`);
         });
     }
