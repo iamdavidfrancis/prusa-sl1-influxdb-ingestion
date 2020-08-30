@@ -79,7 +79,5 @@ export default class InfluxClient {
                 timestamp: new Date()
             }
         ]);
-
-        console.log("Data written to influx");
     }
 }
