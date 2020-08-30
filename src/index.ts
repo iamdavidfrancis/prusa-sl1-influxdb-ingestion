@@ -4,7 +4,6 @@ import { start } from 'repl';
 
 class Main {
     constructor() {
-        
     }
 
     public async start() {
@@ -47,9 +46,6 @@ class Main {
             
         }
     }
-
-
-    
 }
 
 const app = new Main();
