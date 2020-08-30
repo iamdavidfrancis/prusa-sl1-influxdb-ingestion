@@ -28,7 +28,7 @@ class Main {
         }
         
         const maxBackoff = 10 * 60 * 1000; // 10 min
-        const backoff = 100; 
+        let backoff = 100; 
 
         while(true) {
             try {
