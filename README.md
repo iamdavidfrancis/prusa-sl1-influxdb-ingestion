@@ -20,3 +20,8 @@ The image requires several environment variables to work:
 `INFLUX_DATABASE`: The name of the database to send the data.   
 `INFLUX_USER`: The username for the influxdb instance.   
 `INFLUX_PASSWORD`: The password for the influxdb user.
+
+
+# TODO
+* Add Influx port to environment variables.
+* Add UTs
