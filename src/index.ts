@@ -1,6 +1,5 @@
 import WebsocketConnection from './webclient';
 import InfluxClient from './influx-client';
-import { start } from 'repl';
 
 class Main {
     constructor() {
