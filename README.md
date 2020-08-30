@@ -21,7 +21,12 @@ The image requires several environment variables to work:
 `INFLUX_USER`: The username for the influxdb instance.   
 `INFLUX_PASSWORD`: The password for the influxdb user.
 
+# Known Issues
+
+Something fails when the print finishes and the docker container needs to be restarted when you start the next print. I'm looking into what's going on now.
+
 
 # TODO
 * Add Influx port to environment variables.
 * Add UTs
+* Fix errors when print finishes
