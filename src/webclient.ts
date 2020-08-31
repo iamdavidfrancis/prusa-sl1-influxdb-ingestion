@@ -37,7 +37,7 @@ export default class WebsocketConnection {
                         const data = JSON.parse(message.utf8Data || '') as MessageData;
 
                         if (data.type === "items") {
-                           if (!data.content || data.content.exposure) {
+                           if (!data.content || data.content.exposure || data.content.line2) {
                                return;
                            } else {
                                await influxClient.addDbEntry(data.content);
